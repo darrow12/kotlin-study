@@ -1,27 +1,56 @@
 fun main(args: Array<String>) {
-    var nomeFaculdade = "FIAP"
-    println(nomeFaculdade)
+    var nome = "Kim"
+    println(nome)
 
-    nomeFaculdade = "Faculdade de Informática e Administração Paulista"
-    println(nomeFaculdade)
+    nome = "Maria"
+    println(nome.length)
 
-    // nomeFaculdade = 200 // Não pode mudar o tipo da variável. Se foi "definida"/advinhada como String, vai ser string até ser apagada
+    /* ============================================ */
 
-    var idade: Byte = 20
-    println(idade)
+    // STRING: cadeira de caracteres
+    var cidade: String = "São Paulo"
+    println("Nome da cidade: " + cidade)
+    println("Quantidade de Letras: " + cidade.length)
+    // String é para guardar algo grande na memória
 
-    val pi = 3.14 // Variável constante
+    /* ============================================ */
 
-    var peso: Byte = -128
-    println(peso)
-
+    // CHAR: Representar uma informação com uma letrinha
     println("")
-    println(Byte.MAX_VALUE)
-    println(Byte.MIN_VALUE)
-    /* Digamos que o mínimo e máximo seja o valor do Bit divido por 2.
-    Ele aceita positivo e negativo, contudo, no positivo, ele conta do 0, por isso vai até 127, e no negativo não, por isso, -128
-    */
+    var tipo = 'X' // Aspas simples identifica com Char, aspas duplas como String
+    println(tipo)
+    // É necessário definir de forma explícita o tipo Char na variável, pois se não, será String
+
+    /* ============================================ */
+
+    // PAIR: armazenar dois valores diferentes mas na mesma variável, por exemplo
+    var (codigo, descricao) = Pair(100, "Teclado") // Tipagem por inferência
+    println(codigo)
+    println(descricao)
+
+    var produto2: Pair<Int, String> = Pair(200, "Mouse") // Tipagem explícita
     println("")
-    println(Int.MAX_VALUE)
-    println(Int.MIN_VALUE)
+    println("========")
+    println("")
+    println("Produtos: " + produto2)
+    println("")
+    println("• " + produto2.first + " 🔢")
+    println("• " + produto2.second + " 🖱️")
+    println("")
+
+    /* ============================================ */
+
+    var text = "Este texto \"quebra\" em duas linhas"
+    var text2 = "Nota:\t 10"
+    println(text)
+    println(text2)
+
+    /* ============================================ */
+
+    // Interpolação de Strings
+    val studentGrade = 8.5
+    val studentName = "Jão"
+    val result = "aprovado"
+    val message = "O aluno $studentName tirou $studentGrade e está $result"
+    println(message)
 }
