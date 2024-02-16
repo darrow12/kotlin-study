@@ -1,31 +1,75 @@
 fun main() {
-    // Tipo Nullable: NullSafety
-    var idade: Int? = null // A interrogação permite que a variável idade use o valor null
-    println(idade)
+    // Array: imutável, cria e inicializa, mas não adiciona mais valores na lista. Pode modificar, mas não incluir novos valores
+    var cidades = arrayOf("São Paulo", "Rio de Janeiro", "Goiânia")
 
-    idade = 20
-    println(idade)
+    /*
+        🔎 Casting em Kotlin:
+        Coverter um tipo no outro.
+        Se não especificar, e jogar um número, por exemplo, ele pode fazer o casting
+    */
 
-    // Exemplo =================
+    println(cidades[2])
 
-    // A atribuição de null a um var também não será compilada
-    //var driverLicense: String = "6789877"
-    //driverLicense = null // não compila
-    // Para que uma variável contenha um valor null é necessário
-    // o uso do sufixo ? no tipo
+    cidades[1] = "Curitiba"
+    println(cidades[1])
 
-    /* var driverLicense: String? = null
-    println(driverLicense)
-    driverLicense = "6789877"
-    println(driverLicense)
-    driverLicense = null // agora compila
-    println(driverLicense) */
+    println("")
 
-    var driverLicense: String? = null
-    // driverLicense = "6789877"
-    if (driverLicense != null) {
-        println("A carteira de motorista é $driverLicense")
+    // =========================================
+
+    var temCidade = cidades.isEmpty()
+    println(temCidade)
+
+    var valor = arrayOf<String>()
+    var temValor = valor.isEmpty()
+    println(temValor)
+
+    // Tamanho de um Array
+    println(cidades.size) // Tamanho de três, começando no 0
+
+    // Array list: adicionando itens
+    var frutas = ArrayList<String>()
+    println("Quantidade de frutas: " + frutas.size)
+    frutas.add("Banana")
+    println("Quantidade de frutas: " + frutas.size)
+    frutas.add("Morango")
+    frutas.add("Melancia")
+    frutas.add("Melancia")
+    println("Quantidade de frutas: " + frutas.size)
+
+    // Pesquisa no Array
+    println(frutas.contains("Uva"))
+    println(frutas.contains("Morango"))
+
+    // Visualizar todos os itens da lista
+    println(frutas)
+
+    // Remover item
+    frutas.remove("Banana") // Deve ser escrito exatamente igual
+    println(frutas)
+
+    println("A quantidade de letras da fruta ${frutas[2]} é de " + frutas[2].count() + "caracteres.")
+
+    // ========================== Exemplo =============================
+
+    //Criando um Array de Strings vazio
+    var emptyArray =  arrayOf<String>()
+    //Criando um Array de Strings e alimentando valores na criação
+    var shoppingList = arrayOf<String>("Leite", "Pão", "Manteiga", "Açúcar")
+    //Usando inferência
+    var inferredShoppingList = arrayOf("Leite", "Pão", "Manteiga", "Açúcar")
+    //Testando se um Array está vazio
+    if (shoppingList.isEmpty()) {
+        println("A lista de compras está vazia")
     } else {
-        println("Esta pessoa não possui carteira de motorista")
+        println("A lista de compras NÃO está vazia")
     }
+    //Recuperando o total de elementos do Array
+    println("Nossa lista de compras possui ${shoppingList.size} itens")
+    //Resultado: Nossa lista de compras possui 4 itens
+    println("Listando todos os itens:")
+    println(shoppingList[0]) //Primeiro item do array
+    println(shoppingList[1]) //Segundo item Acessando itens de um Array do array
+    println(shoppingList[2]) //Terceiro item do array
+    println(shoppingList[3]) //Quarto item do array
 }
