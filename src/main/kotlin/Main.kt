@@ -1,47 +1,51 @@
 fun main() {
-    /* Exercício:
-
-    + Criar um Array vazio para armazenar as tarefas.
-    + Adicionar algumas tarefas à lista inicialmente.
-    + Verificar se a lista está vazia.
-    + Adicionar mais algumas tarefas à lista.
-    + Verificar se a lista está vazia novamente.
-    + Mostrar todas as tarefas na lista.
-    + Remover uma tarefa específica.
-    + Contar a quantidade de letras em uma tarefa específica.
-
-    Dica: Você pode usar as funções isEmpty(), add(), contains(), remove(), size e count() para realizar estas operações.
-    */
-
-    var tasks = ArrayList<String>()
-    tasks.add("• Lavar o carro")
-    tasks.add("• Levar o lixo")
-    tasks.add("• Tomar banho")
-
-    println("======== 📋 To.do: Lista de tarefas ========")
-    println("")
-
-    if (tasks.isEmpty()) {
-        println("A lista de tarefas está vazia! Hora de relaxar! 😎")
-        println("")
-    } else {
-        println("Há tarefas a fazer! Mãos à obra!")
-        println("")
-        println("✅ Lista:")
-        for (task in tasks) {
-            println(task)
-        }
-        println("")
-        println("A lista possui ${tasks.size} tarefas.")
-        println("")
-        for (task in tasks) {
-            println("A tarefa ${task} possui ${task.length} caracteres.")
-        }
+    //Criando um List de Strings
+    var movies = ArrayList<String> ()
+    movies.addAll(listOf(
+        "Matrix",
+        "Vingadores",
+        "Jurassic Park",
+        "De Volta para o Futuro"
+    ))
+//Criando um list vazio
+    var movies2 = ArrayList<String> ()
+//Inserindo elementos
+    movies.add("Homem-Aranha: De Volta ao Lar")
+    println(movies.count()) //5
+    println("\n")
+//Perceba que o código abaixo vai alterar a quantidade
+//de itens do List pois ele aceita itens repetidos.
+    movies.add("Homem-Aranha: De Volta ao Lar")
+    println(movies)   //[Matrix, Vingadores, Jurassic Park, De Volta ao Futuro, Homem-Aranha: De Volta ao Lar, Homem-Aranha: De Volta ao Lar]
+    println(movies.count()) //6 (2 elementos repetidos)
+    println("\n")
+//Removendo 2 elementos repetidos
+    movies.remove("Homem-Aranha: De Volta ao Lar")
+    movies.remove("Homem-Aranha: De Volta ao Lar")
+    println(movies)   //["Vingadores", "De Volta para o Futuro", "Matrix", "Jurassic Park"]
+    println("\n")
+//Percorrendo um List
+    for (movie in movies) {
+        println(movie)
     }
-
-    tasks.remove("• Tomar banho")
-    println("")
-    println("=================")
-    println("")
-    println("A tarefa \"Tomar banho\" foi removida da lista com sucesso.")
+    println("\n")
+//Verificando se determinado elemento está contido no List
+    if (movies.contains("Matrix")) {
+        println("Matrix está na minha lista de filmes favoritos!!")
+    }
+    println("\n")
+//Vamos criar um novo List para realizarmos algumas operações
+//No exemplo abaixo, usaremos um formato mais simplificado de criação de List
+    var myWifeMovies  = listOf(
+        "De Repente 30",
+        "Mensagem para você",
+        "Sintonia de Amor",
+        "De Volta para o Futuro",
+        "Jurassic Park"
+    )
+//Criando um List com todos os filmes
+    var allMovies = movies + myWifeMovies
+    println(allMovies)
+//[Matrix, Vingadores, Jurassic Park, De Volta para o Futuro, De Repente 30, Mensagem para você, Sintonia de Amor, De Volta para o Futuro, Jurassic Park]
+    println("\n")
 }
