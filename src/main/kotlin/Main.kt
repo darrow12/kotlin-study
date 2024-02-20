@@ -1,31 +1,17 @@
 fun main() {
-    // Set não permite itens repetidos
-    var filmes = HashSet<String>()
-    println(filmes.size)
+    // Map: consegue colocar uma lista do tipo chave e valor
+    // Lista de produtos, dá para fazer o map
 
-    filmes.add("Homem-Aranha 1")
-    filmes.add("Homem-Aranha 2")
-    filmes.add("Homem-Aranha 3")
-    println(filmes.size)
+    var produtos = HashMap<String, Double>()
+    produtos.put("Mouse", 149.9)
+    produtos.put("Teclado", 219.99)
+    produtos.put("Apontador laser", 56.99)
 
-    println(filmes)
+    println(produtos)
+    println(produtos.size)
 
-    filmes.add("Homem-Aranha 1")
-    println(filmes)
+    produtos.remove("Mouse")
+    println(produtos)
 
-    filmes.add("Homem-Aranha 4")
-    println(filmes)
-
-    println(filmes.contains("Homem-Aranha 1"))
-    println(filmes.contains("Homem Aranha 1"))
-
-    filmes.remove("Homem-Aranha 4")
-    println(filmes)
-
-    println("\n")
-    // ===========================
-    // Forma reduzida:
-    var precos = setOf(45.9, 78.7, 54.9, 41.9)
-    println(precos)
-    // QUando criado dessa forma, não é possível adicionar novos elementos
+    println(produtos.get("Teclado"))
 }
