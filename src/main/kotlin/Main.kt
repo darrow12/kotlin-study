@@ -1,83 +1,123 @@
 fun main() {
-//Criando um Map de Strings
-    var movies = HashMap<Int,String> ()
-    var catalog = mapOf(
-        Pair(10,"Matrix"),
-        Pair(20,"Vingadores"),
-        Pair(30,"Jurassic Park"),
-        Pair(40,"De Volta para o Futuro")
-    )
-//Utilize o método putAll para inserir o catálogo
-    movies.putAll(catalog)
-//Perceba que o catálogo de filmes está ordenado alfabeticamente
-    println(movies) //{40=De Volta para o Futuro, 10=Matrix, 20=Vingadores, 30=Jurassic Park}
-    println(movies.count()) //4
+    // ========================
+    // Operadores aritmeticos
+    var a = 10
+    var b = 20
+    var c = a + b
+    println("Soma $c")
+
+    c = a - b
+    println("Subtração $c")
+
+    c = a * b
+    println("Multiplicação $c")
+
+    c = a % 2 // resto da divisao
+    println("Resto $c")
+
+    // a = a + 5; Funciona desses jeitos abaixo
+    a += 5;
+    a -= 3;
+    a /= 2;
+    a *= 3;
+    a %= 2;
+    println("Soma composta $a")
     println("\n")
-//Criando um set vazio
-    var movies2 = HashSet<String> ()
-//Inserindo 1 elemento
-    movies.put(25,"Homem-Aranha: De Volta ao Lar")
-    println(movies) //{40=De Volta para o Futuro, 25=Homem-Aranha: De Volta ao Lar, 10=Matrix, 20=Vingadores, 30=Jurassic Park}
-    println(movies.count()) //5
+
+    println("========================")
     println("\n")
-//Perceba que o código abaixo irá alterar a quantidade
-//de itens do Map pois ele aceita itens da chave NÃO repetidos.
-//movies.put(25,"Homem-Aranha: De Volta ao Lar")
-//Faça um teste com a linha superior de código e a inferir
-    movies.put(35,"Homem-Aranha: De Volta ao Lar")
-    println(movies)   //{40=De Volta para o Futuro, 25=Homem-Aranha: De Volta ao Lar, 10=Matrix, 35=Homem-Aranha: De Volta ao Lar, 20=Vingadores, 30=Jurassic Park}
-    println(movies.count()) //6
+    // ========================
+    // Operadores de comparação
+
+    println(2 > 5)
+    println(2 < 5)
+    println(2 == 5)
+    println(2 == 2)
+    println(2 != 2)
+    println(2 != 3)
+    println(2 >= 2)
+    println(2 <= 2)
+    println(2 <= 3)
+    println(2 >= 3)
     println("\n")
-//Removendo elemento
-    movies.remove(25)
-    println(movies)   //{40=De Volta para o Futuro, 10=Matrix, 35=Homem-Aranha: De Volta ao Lar, 20=Vingadores, 30=Jurassic Park}
-    println(movies.count()) //5
+
+    println("========================")
     println("\n")
-//Pecorrendo um Map
-    for (movie in movies) {
-        println(movie)
+    // ========================
+    // Operadores lógicos
+
+    // &&
+    println(2 > 3 && 5 < 4) // false + false = false
+    println(2 < 3 && 5 < 4) // true + false = false
+    println(2 < 3 && 5 > 4) // true + true = true
+    println(2 < 3 && 5 > 4 && 1 != 1) // true + true + false = false
+    println(2 < 3 && 5 > 4 && 1 != 10) // true + true + true = true
+
+    // ||
+    println(2 > 3 || 5 == 5) // false + true = true
+    println(2 < 3 || 5 == 5) // true + true = true
+    println(2 == 3 || 5 < 5) // false + false = false
+    println("\n")
+
+    println("========================")
+    println("\n")
+    // ========================
+    // Operador Ternário
+
+    var grade = 7.5
+    var result = if (grade > 7.0) "aprovado" else "reprovado"
+    println(result)   //aprovado
+    println("\n")
+
+
+    println("========================")
+    println("\n")
+    // ========================
+    // COALESCÊNCIA NULA (?:)
+    // Em Kotlin, o operador ?: permite decidir pelo uso de uma atribuição de redundância, caso a variável analisada seja nula. O Código-fonte “Operador Coalescência nula” mostra exemplos do uso.
+
+    var age: Int? = null
+    var myAge = age ?: 0    //0
+    println(myAge)
+
+    age = 25
+    var newAge = age ?: 0   //25
+    println(newAge)
+
+    // Outro exemplo
+
+    // Variável para representar o local da festa (age)
+    var localDaFesta: String? = null // Se o local não for encontrado, inicialmente é nulo
+
+    // Se o amigo não encontrar um local disponível, você decide por um local alternativo (valor padrão após ?:)
+    var localEscolhido = localDaFesta ?: "Casa do João" // "Casa do João" é o local alternativo
+    println("O local da festa é: $localEscolhido")
+
+    // Se o amigo encontrar um local disponível, você vai com esse local
+    localDaFesta = "Salão de Festas"
+    localEscolhido = localDaFesta ?: "Casa do João" // Neste caso, o local encontrado será o utilizado
+    println("O local da festa é: $localEscolhido")
+
+    // Se localDaFesta for nulo, localEscolhido será "Casa do João" (o valor padrão).
+    // Se localDaFesta não for nulo, localEscolhido será o valor de localDaFesta.
+    println("\n")
+
+
+    println("========================")
+    println("\n")
+    // ========================
+    // CLOSED RANGE(..) E HALF CLOSED RANGE (UNTIL)
+    //Estes operadores criam um intervalo de valores. O Closed Range utiliza (..) para criar um intervalo aberto, indicando o valor inicial e o valor final. Por sua vez, o Half Closed Range utiliza a palavra reservada (until) para criar um intervalo entre o valor inicial e o valor imediatamente anterior ao valor final (intervalo aberto no início e fechado ao final). Veja o exemplo a no Código-fonte “Operadores Closed Range e Half Closed Range” no qual esses operadores são utilizados em uma estrutura de repetição for.
+
+    println("\nClosed Range ..")
+    var numbers = 1..10
+    for (number in numbers) {
+        println(number)   //Imprime de 1 a 10
     }
-    println("\n")
-//Verificando se determinado elemento está contido no List
-    if (movies.containsValue("Matrix")) {
-        println("Matrix está na minha lista de filmes favoritos!!")
-    }
-    println("\n")
-//Vamos criar um novo map para realizarmos algumas operações
-//No exemplo abaixo, usaremos um formato mais simplificado de criação de Map
-    var myWifeMovies  = mapOf(
-        Pair(100,"De Repente 30"),
-        Pair(200,"Mensagem para você"),
-        Pair(300,"Sintonia de Amor"),
-        Pair(400,"De Volta para o Futuro"),
-        Pair(500,"Jurassic Park")
-    )
-//Criando um Map com todos os filmes)
-    var allMovies = movies + myWifeMovies
-    println(allMovies) // {40=De Volta para o Futuro, 10=Matrix, 35=Homem-Aranha: De Volta ao Lar, 20=Vingadores, 30=Jurassic Park, 100=De Repente 30, 200=Mensagem para você, 300=Sintonia de Amor, 400=De Volta para o Futuro, 500=Jurassic Park}
-    println(allMovies.count()) //10
-    println("\n")
-//Lendo Chave e Valor separadamente
-    for(movie in allMovies) {
-        println("Chave => Key => ${movie.key}")
-        println("Valor => Value => ${movie.value}")
-        var title = movie.value.toUpperCase()
-        println("UpperCase => ${title}")
-        title = movie.value.toLowerCase()
-        println("LowerCase => ${title}")
-        println("\n")
-    }
-//Executando uma pesquisa diretamente na chave do Map
-    var film1 = allMovies.get(400)   //400=De Volta para o Futuro
-    println("Title => ${film1}") // Retorna String. Retorna o Título
-    var film2 = allMovies.get(999)   //Não existe
-    println("Title => ${film2}") // Retorna null
-//Verificando a possibilidade de testar antes de imprimir
-    var code = 1234 // Experimente trocar o código
-    var film3 = allMovies.get(code)   //Não existe
-    if(film3.isNullOrEmpty()) {
-        println("\nFilme com o código $code não encontrado!")
-    } else {
-        println("\nTitle => ${film3}") // Retorna o título
+
+    println("\nHalf Closed Range (until)")
+    var newNumbers = (1 until 10)
+    for (number in newNumbers) {
+        println(number)   //Imprime de 1 a 9
     }
 }
